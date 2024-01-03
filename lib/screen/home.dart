@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tubes_ppb/screen/barang.dart';
 import 'package:tubes_ppb/screen/homepage.dart';
+import 'package:tubes_ppb/screen/user.dart';
 import 'package:tubes_ppb/style/color.dart';
 
 class Home extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   List<Widget> pageList = [
     Homepage(),
     Barang(),
-    Center(),
+    User(),
   ];
   int _selectedIndex = 0;
 

@@ -22,6 +22,7 @@ class AddBarangState extends State<AddBarang> {
   final uid = FirebaseAuth.instance.currentUser?.uid;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
+  final TextEditingController _desckController = TextEditingController();
   final TextEditingController _stockController = TextEditingController();
 
   Future getImage() async {
@@ -123,6 +124,31 @@ class AddBarangState extends State<AddBarang> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              FaIcon(FontAwesomeIcons.boxesStacked),
+              SizedBox(
+                width: mediaQuery.size.width / 1.3,
+                child: TextField(
+                  controller: _desckController,
+                  decoration: InputDecoration(
+                    labelText: 'Deskripsi',
+                    hintText: 'Tulis deskripsi disini',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: gray), // Atur warna border
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 5.0, horizontal: 10.0),
+                  ),
+                  // style: text_14_500,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               FaIcon(FontAwesomeIcons.tags),
               SizedBox(
                 width: mediaQuery.size.width / 1.3,
@@ -152,6 +178,7 @@ class AddBarangState extends State<AddBarang> {
                   "image": url,
                   "name": _nameController.text,
                   "stock": _stockController.text,
+                  "desc" : _desckController.text,
                   "price": _priceController.text
                 });
                 Navigator.pop(context);

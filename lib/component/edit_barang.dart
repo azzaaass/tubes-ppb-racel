@@ -25,6 +25,7 @@ class EditBarangState extends State<EditBarang> {
   final uid = FirebaseAuth.instance.currentUser?.uid;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
+  final TextEditingController _descController = TextEditingController();
   final TextEditingController _stockController = TextEditingController();
 
   @override
@@ -33,6 +34,7 @@ class EditBarangState extends State<EditBarang> {
     _nameController.text = widget.data.name;
     _priceController.text = widget.data.price;
     _stockController.text = widget.data.stock;
+    _descController.text = widget.data.desc;
     super.initState();
   }
 
@@ -137,6 +139,31 @@ class EditBarangState extends State<EditBarang> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              FaIcon(FontAwesomeIcons.circleInfo),
+              SizedBox(
+                width: mediaQuery.size.width / 1.3,
+                child: TextField(
+                  controller: _descController,
+                  decoration: InputDecoration(
+                    labelText: 'Deskripsi',
+                    hintText: 'Tulis deskripsi disini',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: gray), // Atur warna border
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 5.0, horizontal: 10.0),
+                  ),
+                  // style: text_14_500,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
               FaIcon(FontAwesomeIcons.tags),
               SizedBox(
                 width: mediaQuery.size.width / 1.3,
@@ -168,14 +195,16 @@ class EditBarangState extends State<EditBarang> {
                       "image": url,
                       "name": _nameController.text,
                       "stock": _stockController.text,
-                      "price": _priceController.text
+                      "price": _priceController.text,
+                      "desc": _descController.text
                     });
                   } else {
                     final db = FirebaseFirestore.instance;
                     db.collection("product").doc(productID).set({
                       "name": _nameController.text,
                       "stock": _stockController.text,
-                      "price": _priceController.text
+                      "price": _priceController.text,
+                      "desc": _descController.text
                     }, SetOptions(merge: true));
                   }
                   Navigator.pushReplacement(

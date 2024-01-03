@@ -18,7 +18,7 @@ class Homepage extends StatelessWidget {
       final ref = FirebaseStorage.instance.ref().child(imagePath);
       return await ref.getDownloadURL();
     } catch (error) {
-      return "hmm";
+      return "https://firebasestorage.googleapis.com/v0/b/tubes-mobile2.appspot.com/o/profile_image%2Fno-photo-available.png?alt=media&token=9a7d9cd6-62af-45ef-bd8c-1f49fc502f03";
     }
   }
 
@@ -100,7 +100,8 @@ class Homepage extends StatelessWidget {
                                     image: _data[index]['image'],
                                     name: _data[index]['name'],
                                     price: _data[index]['price'],
-                                    stock: _data[index]['stock']),
+                                    stock: _data[index]['stock'],
+                                    desc: _data[index]['desc']),
                               ),
                             )),
                         child: Container(
@@ -126,6 +127,7 @@ class Homepage extends StatelessWidget {
                                       Text(_data[index]['name'].toString()),
                                       Text(
                                           'Rp ${_data[index]['price'].toString()}'),
+                                      Text(_data[index]['desc'].toString()),
                                     ],
                                   ))
                             ],

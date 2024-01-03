@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDq7VqoEyeYeE9qF3mYtWLK77v1S4Eu11U',
-    appId: '1:835471751124:web:579c2dde193b769fa98841',
-    messagingSenderId: '835471751124',
-    projectId: 'tubes-mobile-505c0',
-    authDomain: 'tubes-mobile-505c0.firebaseapp.com',
-    storageBucket: 'tubes-mobile-505c0.appspot.com',
-    measurementId: 'G-HZYKWXSRVR',
+    apiKey: 'AIzaSyD_Aiqx1k3hf8N04PB90qkNesHHnS4PFk4',
+    appId: '1:686643457853:web:d4249e5e361c650aa39f54',
+    messagingSenderId: '686643457853',
+    projectId: 'tubes-mobile2',
+    authDomain: 'tubes-mobile2.firebaseapp.com',
+    storageBucket: 'tubes-mobile2.appspot.com',
+    measurementId: 'G-3X29PE821D',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBRtU1aHWmovPw4wv061QjbOVVRJIozf6A',
-    appId: '1:835471751124:android:9e61c22b5d06d3bda98841',
-    messagingSenderId: '835471751124',
-    projectId: 'tubes-mobile-505c0',
-    storageBucket: 'tubes-mobile-505c0.appspot.com',
+    apiKey: 'AIzaSyDzlDeqYBVyahWyMeSoggT2LkfrauoqV5Y',
+    appId: '1:686643457853:android:5fe482cf84518f88a39f54',
+    messagingSenderId: '686643457853',
+    projectId: 'tubes-mobile2',
+    storageBucket: 'tubes-mobile2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAM_hz2JhkDWncZTPRbjI6oEJWXZo71lrQ',
-    appId: '1:835471751124:ios:dc56101d92e0ee25a98841',
-    messagingSenderId: '835471751124',
-    projectId: 'tubes-mobile-505c0',
-    storageBucket: 'tubes-mobile-505c0.appspot.com',
+    apiKey: 'AIzaSyASDixxw0c8BIHcTX_t9Hrcz4fhF6RJSUE',
+    appId: '1:686643457853:ios:a2a3e0d62d3d2e09a39f54',
+    messagingSenderId: '686643457853',
+    projectId: 'tubes-mobile2',
+    storageBucket: 'tubes-mobile2.appspot.com',
     iosBundleId: 'com.example.tubesPpb',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAM_hz2JhkDWncZTPRbjI6oEJWXZo71lrQ',
-    appId: '1:835471751124:ios:e912b48d5ba119f5a98841',
-    messagingSenderId: '835471751124',
-    projectId: 'tubes-mobile-505c0',
-    storageBucket: 'tubes-mobile-505c0.appspot.com',
+    apiKey: 'AIzaSyASDixxw0c8BIHcTX_t9Hrcz4fhF6RJSUE',
+    appId: '1:686643457853:ios:d82a13699ce7b3cea39f54',
+    messagingSenderId: '686643457853',
+    projectId: 'tubes-mobile2',
+    storageBucket: 'tubes-mobile2.appspot.com',
     iosBundleId: 'com.example.tubesPpb.RunnerTests',
   );
 }
