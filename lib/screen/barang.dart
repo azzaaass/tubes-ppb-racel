@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tubes_ppb/component/add_barang.dart';
+import 'package:tubes_ppb/component/detail_barang.dart';
+import 'package:tubes_ppb/data/data.dart';
 import 'package:tubes_ppb/style/color.dart';
 
 class Barang extends StatelessWidget {
@@ -40,31 +42,70 @@ class Barang extends StatelessWidget {
               ),
             ),
           ),
-          // StreamBuilder(
-          //   stream: db.collection("product").snapshots(),
-          //   builder: (context, snapshot) {
-          // if (snapshot.connectionState == ConnectionState.waiting) {
-          //   return const Center(
-          //     child: CircularProgressIndicator(),
-          //   );
-          // }
-          // if (snapshot.hasError) {
-          //   return const Center(
-          //     child: Text("Error"),
-          //   );
-          // }
-          // return GridView.builder(
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2),
-          //   itemBuilder: (context, index) {
-          //     var data = snapshot.data!.docs;
-          //     return Container(
-          //       child: Text(data[index]['name']),
-          //     );
-          //   },
-          // );
-          //   },
-          // ),
+          StreamBuilder(
+            stream: db.collection("product").snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (snapshot.hasError) {
+                return const Center(
+                  child: Text("Error"),
+                );
+              }
+              var data = snapshot.data!.docs;
+              return Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    print(data.runtimeType);
+                    return InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => DetailBarang(
+                            data: Product(
+                                id: data[index].id,
+                                image: data[index]['image'],
+                                name: data[index]['name'],
+                                price: data[index]['price'],
+                                stock: data[index]['stock'],
+                                desc: data[index]['desc']),
+                          ),
+                        ),
+                      ),
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                        decoration: BoxDecoration(color: red),
+                        child: Column(
+                          children: [
+                            Expanded(
+                                child: SizedBox(
+                                    width: mediaQuery.size.width,
+                                    child: Image.network(
+                                      data[index]['image'],
+                                      fit: BoxFit.cover,
+                                    ))),
+                            Expanded(
+                                child: Column(
+                              children: [
+                                Text(data[index]['name']),
+                                Text("Rp ${data[index]['price']}"),
+                              ],
+                            )),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

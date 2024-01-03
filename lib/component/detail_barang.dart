@@ -58,6 +58,7 @@ class DetailBarang extends StatelessWidget {
           children: [
             Text(data.name),
             Text("Rp ${data.price}"),
+            Text(data.desc),
             // Text(role),
             ElevatedButton(
               onPressed: () {

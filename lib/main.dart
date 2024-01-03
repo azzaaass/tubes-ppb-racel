@@ -5,7 +5,7 @@ import 'package:tubes_ppb/firebase_options.dart';
 import 'package:tubes_ppb/screen/home.dart';
 
 void main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Login(),
+      home: Home(),
     );
   }
 }
